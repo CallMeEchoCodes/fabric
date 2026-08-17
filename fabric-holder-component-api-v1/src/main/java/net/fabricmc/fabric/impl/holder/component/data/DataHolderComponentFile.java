@@ -29,13 +29,12 @@ import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.MapLike;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
-import net.fabricmc.fabric.mixin.holder.component.RegistryOpsAccessor;
-
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.resources.RegistryOps;
 
 import net.fabricmc.fabric.api.resource.conditions.v1.ResourceCondition;
+import net.fabricmc.fabric.mixin.holder.component.RegistryOpsAccessor;
 
 public record DataHolderComponentFile(
 		boolean replace,
@@ -110,9 +109,9 @@ public record DataHolderComponentFile(
 			}
 
 			Optional<ResourceCondition> condition = conditionResult.getOrThrow();
-			RegistryOps.RegistryInfoLookup lookupProvider = ops instanceof RegistryOpsAccessor registryOps ?
-					registryOps.getLookupProvider() :
-					null;
+			RegistryOps.RegistryInfoLookup lookupProvider = ops instanceof RegistryOpsAccessor registryOps
+					? registryOps.getLookupProvider()
+					: null;
 
 			if (condition.isPresent() && !condition.get().test(lookupProvider)) {
 				return DataResult.success(Pair.of(EMPTY, input));
