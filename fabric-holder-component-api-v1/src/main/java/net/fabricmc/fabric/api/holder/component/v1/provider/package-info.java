@@ -14,20 +14,14 @@
  * limitations under the License.
  */
 
-package net.fabricmc.fabric.impl.holder.component;
+/**
+ * API code for fabric-holder-component-api-v1.
+ *
+ * <p><b>Experimental feature</b>, may be removed or changed without further notice.
+ */
+@NullMarked
+@ApiStatus.Experimental
+package net.fabricmc.fabric.api.holder.component.v1.provider;
 
-import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.holder.component.v1.FabricDataComponentInitializers;
-import net.fabricmc.fabric.impl.holder.component.data.DataHolderComponentInitializer;
-
-public class HolderComponentEntrypoint implements ModInitializer {
-	public static final String MOD_ID = "fabric-holder-component-api-v1";
-
-	@Override
-	public void onInitialize() {
-		FabricDataComponentInitializers.registerInitializer(
-				FabricDataComponentInitializers.DATA_HOLDER_COMPONENTS,
-				new DataHolderComponentInitializer()
-		);
-	}
-}
+import org.jetbrains.annotations.ApiStatus;
+import org.jspecify.annotations.NullMarked;

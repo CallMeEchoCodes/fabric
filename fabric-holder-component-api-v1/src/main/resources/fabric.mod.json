@@ -17,7 +17,9 @@
   ],
   "depends": {
     "fabricloader": ">=0.18.4",
-    "fabric-api-base": "*"
+    "fabric-api-base": "*",
+    "fabric-data-generation-api-v1": "*",
+    "fabric-resource-conditions-api-v1": "*"
   },
   "description": "Allows conveniently attaching data to holders via datapack",
   "mixins": [
