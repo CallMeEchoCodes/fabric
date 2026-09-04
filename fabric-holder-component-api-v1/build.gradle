@@ -1,0 +1,45 @@
+version = getSubprojectVersion(project)
+
+moduleDependencies(project, [
+	'fabric-api-base'
+])
+
+testDependencies(project, [
+	'fabric-command-api-v2'
+])
+
+fabricApi {
+	configureDataGeneration {
+		outputDirectory = file("src/testmod/generated")
+		addToResources = false
+		strictValidation = true
+	}
+}
+
+runDatagen {
+	outputs.dir("src/testmod/generated")
+}
+
+sourceSets {
+	testmod {
+		resources {
+			srcDirs += [
+				'src/testmod/generated'
+			]
+		}
+	}
+}
+
+loom {
+	accessWidenerPath = file("src/main/resources/fabric-holder-component-api-v1.classtweaker")
+
+	runs {
+		datagen {
+			name "Data Generation"
+			source sourceSets.testmod
+			ideConfigGenerated = true
+		}
+	}
+}
+
+generateResources.dependsOn runDatagen
