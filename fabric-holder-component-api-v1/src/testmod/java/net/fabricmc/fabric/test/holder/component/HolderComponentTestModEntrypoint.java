@@ -20,9 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.references.BlockIds;
 import net.minecraft.references.BlockItemIds;
-import net.minecraft.references.ItemIds;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.animal.pig.PigVariants;
 import net.minecraft.world.item.DyeColor;
